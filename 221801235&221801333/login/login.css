@@ -3,7 +3,7 @@ body{
   top: 0px;
   background-color: rgba(255, 255, 255, 100); 
 }
-#sign  {
+#login{
   position:absolute;
   left: 430px;
   top: 150px;
@@ -63,7 +63,7 @@ body{
   text-align: left;
   font-family: SourceHanSansSC-regular;
 }
-#sign_button{
+#button{
   position:absolute;
   left: 432px;
   top: 440px;
