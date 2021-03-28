@@ -3,7 +3,7 @@ body{
   top: 0px;
   background-color: rgba(255, 255, 255, 100); 
 }
-#register {
+#register{
   position:absolute;
   left: 430px;
   top: 150px;
@@ -52,7 +52,18 @@ body{
   width: 24px;
   height: 24px;
 }
-#register_button{
+#login_label{
+  position:absolute;
+  left: 805px;
+  top: 400px;
+  width: 64px;
+  height: 24px;
+  color: rgba(170, 170, 170, 100);
+  font-size: 16px;
+  text-align: left;
+  font-family: SourceHanSansSC-regular;
+}
+#button{
   position:absolute;
   left: 432px;
   top: 440px;
