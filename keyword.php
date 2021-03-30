@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css" rel="stylesheet">
+    <title>force paper</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+  <div>
+    <?php   
+    //形成关键词表 
+      class login{
+        function isExist() { 
+          $mysqli = mysqli_connect('localhost:3306','root','','paperforce') or die("连接数据库失败");
+          $user = $mysqli->query("select * from papers");
+          $num_results = $user->num_rows; 
+            for ($i=0; $i <$num_results; $i++)
+            {
+                $row = $user->fetch_assoc();
+                $pattern = '#"(.*?)"#i'; 
+                preg_match_all($pattern, $row["keyword"], $matches); 
+            }
+        }
+      }       
+      $login=new login; 
+      $login->isExist();
+    ?>
+    </div>
+  </body>
+</html>
