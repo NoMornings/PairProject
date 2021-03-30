@@ -33,9 +33,20 @@
                 }
             }
         }
+        //热门领域
+        function statistics(){
+          $mysqli = mysqli_connect('localhost:3306','root','','paperforce') or die("连接数据库失败");
+          $user = $mysqli->query("select keyword,sum(num) as total from keyword group by keyword order by total DESC limit 10");
+          $num_results = $user->num_rows; 
+            for ($i=0; $i <$num_results; $i++)
+            {
+                $row = $user->fetch_assoc();
+                echo $row["keyword"].$row['total']."</br>";
+            }
+        }
+        
       }       
       $login=new login; 
-      $login->isExist();
     ?>
     </div>
   </body>
