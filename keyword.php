@@ -44,7 +44,22 @@
                 echo $row["keyword"].$row['total']."</br>";
             }
         }
-        
+        //热门领域的变化趋势
+        function trend(){
+          //获得十大热门领域
+          $mysqli = mysqli_connect('localhost:3306','root','','paperforce') or die("连接数据库失败");
+          $user = $mysqli->query("select keyword,sum(num) as total from keyword group by keyword order by total DESC limit 10");
+          $num_results = $user->num_rows; 
+          $arr=array();
+          for ($i=0; $i <$num_results; $i++)
+          {
+              $row = $user->fetch_assoc();
+              array_push($arr,$row["keyword"]);
+          }
+          foreach($arr as $list=>$things){  
+           echo $things; 
+          }
+        }
       }       
       $login=new login; 
     ?>
