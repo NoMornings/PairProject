@@ -20,7 +20,17 @@
             {
                 $row = $user->fetch_assoc();
                 $pattern = '#"(.*?)"#i'; 
+                $name=$row["name"];
+                $MeetingAndYear=$row["MeetingAndYear"];
                 preg_match_all($pattern, $row["keyword"], $matches); 
+                foreach($matches as $list=>$things){
+                  if(is_array($things)){
+                  foreach($things as $newlist=>$counter){                    
+                  $result = preg_replace("/[^a-zA-Z0-9]+/", "", $counter);
+                  $mysqli->query("insert into keyword values('".$result."','".$name."','1','".$MeetingAndYear."')");  
+                  }
+                 }
+                }
             }
         }
       }       
