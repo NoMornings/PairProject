@@ -57,7 +57,11 @@
               array_push($arr,$row["keyword"]);
           }
           foreach($arr as $list=>$things){  
-           echo $things; 
+            $year=array("ECCV 2016","ECCV 2018","ECCV 2019","ECCV 2020");                
+            $a = $mysqli->query("select * from keyword where MeetingAndYear = '".$year[0]."' and keyword = '".$things."'");
+            echo $a->num_rows;
+            $b = $mysqli->query("select * from keyword where MeetingAndYear = '".$year[1]."' and keyword = '".$things."'");
+            echo $b->num_rows; 
           }
         }
       }       
