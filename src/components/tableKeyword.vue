@@ -43,29 +43,23 @@ export default {
             console.log('res=>',res.data);
             this.res=res;
             console.log('this.res=>',this.res.data);
+
+            //转换成数组
+            let snsArr;
+            //判断是否为空，非空则split()
+            if(this.res.data){
+              snsArr=this.res.data.split("*");
+              console.log("snsArr=",snsArr);
+            }
+          
+            //需要删除空项
+            for(var i=0;i<20;i+=2){
+                // let keywordFormate=snsArr[i].replace('[','').replace(']','');
+                this.chartData.rows.push({关键字:snsArr[i],
+                                总浏览量:snsArr[i+1]});
+            }
+            // console.log("this.chartData.rows:"+this.chartData.rows[0]+'\n');
         })
-
-        // //转换成数组
-        // let snsArr;
-        // //判断是否为空，非空则split()
-        // if(this.res.data){
-        //   snsArr=this.res.data.split("*");
-        // }
-        // //删除空项
-        // for(var i=0;i<snsArr.length;i++){
-        //   if(!snsArr[i]){
-        //     console.log("delete:"+i+'\n');
-        //     snsArr.splice(i,1);
-        //   }
-        // }
-
-        //需要删除空项
-        for(var i=0;i<10;i++){
-            // let keywordFormate=snsArr[i].replace('[','').replace(']','');
-            this.chartData.rows.push({关键字:"keywordFormate"+i,
-                            总浏览量:i});
-        }
-        console.log("this.chartData.rows:"+this.chartData.rows+'\n');
     }
   }
 }

@@ -10,7 +10,7 @@
             text-color="#fff"
             active-text-color="#ffd04b">
             <el-menu-item index="1" @click="jumpSearch()">论文检索</el-menu-item>
-            <el-menu-item index="2" @click="jumpTrend()">论文分析</el-menu-item>
+            <el-menu-item index="2" @click="jumpTrend()">热度走势</el-menu-item>
             <el-menu-item index="3" @click="jumpKeyword()">热门领域</el-menu-item>
             <el-menu-item index="4" @click="jumpLogin()">个人中心</el-menu-item>
             <el-button type="warning" style="float:right; margin:10px 20px 0 0;">{{msg}}</el-button>

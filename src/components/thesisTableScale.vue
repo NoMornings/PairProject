@@ -18,6 +18,7 @@
         <!-- table -->
         <el-table
             :data="tableData"
+            :default-sort = "{prop: 'date', order: 'descending'}"
             style="width: 100%; margin-top:20px;">
             <el-table-column type="expand">
             <template slot-scope="props">
@@ -30,10 +31,12 @@
             </el-table-column>
             <el-table-column
             label="论文标题"
+            sortable
             prop="name">
             </el-table-column>
             <el-table-column
             label="日期"
+            sortable
             prop="date">
             </el-table-column>
             <el-table-column
@@ -42,6 +45,7 @@
             </el-table-column>
             <el-table-column
             label="会议"
+            sortable
             prop="meeting">
             </el-table-column>
 
@@ -166,7 +170,7 @@
         //判断是否为空，非空则split()
         if(this.res.data){
           // snsArr=this.res.data.split(/[(\n)\n]+/);
-          snsArr=this.res.data.split("*");
+          snsArr=this.res.data.split("***;%4");
         }
         //删除空项
         for(var i=0;i<snsArr.length;i++){
