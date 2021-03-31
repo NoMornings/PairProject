@@ -15,6 +15,7 @@ export default {
   data () {
     return {
         select:'',
+        cnt:0,
         res:{},
         chartData: {
             columns: ['关键字', '总浏览量'],
@@ -27,6 +28,16 @@ export default {
     this.init();
   },
   methods:{
+    autoPlay:function(){
+      console.log('okkkkkk');
+      console.log('this.cnt',this.cnt);
+      this.cnt+=1;
+      this.cnt%=5;
+      for(var i=0;i<10;i++){
+          // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+          this.chartData.rows[0].总浏览量=this.trendPerYear[i+this.cnt*10].总浏览量;
+      }
+    },
     init:function(){
         //   测试post传入字段
         //   let search=this.input;
@@ -62,19 +73,53 @@ export default {
             }
             console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
 
+            setInterval(this.autoPlay, 2500)
+
             clearTimeout(this.timer);  //清除延迟执行 
-            var j=0;
-            // while(true){
-              j++;
-              j%=5;
-              this.timer = setTimeout(()=>{   //设置延迟执行
-              for(var i=0;i<10;i++){
+            this.timer = setTimeout(()=>{   //设置延迟执行
+                for(var i=0;i<10;i++){
                       // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+0*10].总浏览量;
+                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(0)*10].总浏览量;
                   }
                   console.log('ok');
-              },5000);
-            // }
+            },1000);
+
+            clearTimeout(this.timer);  //清除延迟执行 
+            this.timer = setTimeout(()=>{   //设置延迟执行
+            for(var i=0;i<10;i++){
+                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(1)*10].总浏览量;
+                  }
+                  console.log('ok');
+                  },1000);
+
+            clearTimeout(this.timer);  //清除延迟执行 
+            this.timer = setTimeout(()=>{   //设置延迟执行
+            for(var i=0;i<10;i++){
+                // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+                this.chartData.rows[0].总浏览量=this.trendPerYear[i+(2)*10].总浏览量;
+            }
+            console.log('ok');
+            },1000);
+
+                  clearTimeout(this.timer);  //清除延迟执行 
+                  this.timer = setTimeout(()=>{   //设置延迟执行
+                  for(var i=0;i<10;i++){
+                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(3)*10].总浏览量;
+                  }
+                  console.log('ok');
+                  },1000);
+
+                  clearTimeout(this.timer);  //清除延迟执行 
+                  this.timer = setTimeout(()=>{   //设置延迟执行
+                  for(var i=0;i<10;i++){
+                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(4)*10].总浏览量;
+                  }
+                  console.log('ok');
+                  },1000);
+              
 
             //1s后执行
             // setTimeout(function(){
