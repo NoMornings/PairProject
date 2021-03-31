@@ -9,7 +9,6 @@ import thesisList from '@/views/thesisList'
 import thesisSearch from '@/views/thesisSearch'
 
 //components
-import pageHeader from '@/components/pageHeader'
 import navMenu from '@/components/navMenu'
 
 //table
@@ -67,12 +66,6 @@ export default new Router({
     },
     
     //components
-    //页头
-    {
-      path: '/pageHeader',
-      name: 'pageHeader',
-      component: pageHeader
-    },
     //导航栏
     {
       path: '/navMenu',
