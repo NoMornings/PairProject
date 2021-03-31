@@ -8,6 +8,7 @@
 import VeLine from 'v-charts/lib/line.common'
 import axios from 'axios'
 export default {
+  components: { VeLine },
   data () {
     return {
         res:{},
