@@ -1,16 +1,13 @@
 <template>
   <div>
-    <v-pageheader></v-pageheader>
     <ve-line :data="chartData" style="margin-top:150px;"></ve-line>
   </div>
 </template>
  
 <script>
 import VeLine from 'v-charts/lib/line.common'
-import pageHeader from '@/components/pageHeader'
 import axios from 'axios'
 export default {
-  components: { VeLine ,'v-pageheader':pageHeader},
   data () {
     return {
       chartData: {

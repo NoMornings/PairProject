@@ -5,7 +5,6 @@ import HelloWorld from '@/components/HelloWorld'
 
 //views
 import index from '@/views/index'
-import thesisList from '@/views/thesisList'
 import thesisSearch from '@/views/thesisSearch'
 
 //components
@@ -57,12 +56,6 @@ export default new Router({
           component: tableKeyword
         }
       ]
-    },
-    //论文列表
-    {
-      path: '/thesisList',
-      name: 'thesisList',
-      component: thesisList
     },
     
     //components
