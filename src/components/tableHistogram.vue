@@ -1,7 +1,7 @@
 <template>
   <div>
     <ve-histogram :data="chartData" :events="chartEvents" style="margin-top:100px;"></ve-histogram>
-    <v-tabletrend></v-tabletrend>
+    <!-- <v-tabletrend></v-tabletrend> -->
   </div>
 </template>
  
@@ -19,7 +19,8 @@ export default {
         chartData: {
             columns: ['关键字', '总浏览量'],
             rows:[]
-        }
+        },
+        trendPerYear:[]
     }
   },
   mounted:function(){
@@ -32,7 +33,7 @@ export default {
         //   console.log("this.input="+this.input+'\n');
 
         //axios
-        axios.get('/api/keyword.php').then(res=>{
+        axios.get('/api/trend.php').then(res=>{
             console.log('res=>',res.data);
             this.res=res;
             console.log('this.res=>',this.res.data);
@@ -44,14 +45,49 @@ export default {
               snsArr=this.res.data.split("*");
               console.log("snsArr=",snsArr);
             }
+
+            //需要删除空项
+            for(var j=0;j<5;j++){
+              for(var i=0,k=0;i<20;i+=2,k++){
+                this.trendPerYear.push({关键字:snsArr[i],
+                                  总浏览量:snsArr[19+j*10+k]});
+              }
+            }
+            console.log("trendPerYear=",this.trendPerYear);
           
             //需要删除空项
             for(var i=0;i<20;i+=2){
-                // let keywordFormate=snsArr[i].replace('[','').replace(']','');
                 this.chartData.rows.push({关键字:snsArr[i],
                                 总浏览量:snsArr[i+1]});
             }
-            // console.log("this.chartData.rows:"+this.chartData.rows[0]+'\n');
+            console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+
+            clearTimeout(this.timer);  //清除延迟执行 
+            var j=0;
+            // while(true){
+              j++;
+              j%=5;
+              this.timer = setTimeout(()=>{   //设置延迟执行
+              for(var i=0;i<10;i++){
+                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+0*10].总浏览量;
+                  }
+                  console.log('ok');
+              },5000);
+            // }
+
+            //1s后执行
+            // setTimeout(function(){
+            //   for(var i=0;i<10;i++){
+            //     console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
+            //       // this.chartData.rows[0].总浏览量=this.trendPerYear[i].总浏览量;
+            //   }
+            // },5000);
+            // setTimeout(function(){
+            //   for(var i=0;i<10;i++){
+            //       this.chartData.rows.push(trendPerYear[10+i]);
+            //   }
+            // },5000);
         })
     },
 
