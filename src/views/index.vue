@@ -13,7 +13,7 @@
             <el-menu-item index="2" @click="jumpTrend()">热度走势</el-menu-item>
             <el-menu-item index="3" @click="jumpKeyword()">热门领域</el-menu-item>
             <el-menu-item index="4" @click="jumpLogin()">个人中心</el-menu-item>
-            <el-button type="warning" style="float:right; margin:10px 20px 0 0;">{{msg}}</el-button>
+            <!-- <el-button type="warning" style="float:right; margin:10px 20px 0 0;">{{msg}}</el-button> -->
         </el-menu>
         <router-view></router-view>
         <!-- <v-thesissearch></v-thesissearch>
@@ -47,11 +47,11 @@
         },
         jumpTrend:function(){
             this.activeIndex='2';
-            this.$router.push('/tableTrend');
+            this.$router.push('/tableHistogram');
         },
         jumpKeyword:function(){
             this.activeIndex='3';
-            this.$router.push('/tableKeyword');
+            this.$router.push('/tablePie');
         },
         jumpLogin:function(){
             this.activeIndex='4';

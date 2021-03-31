@@ -17,6 +17,7 @@ import tableTrend from '@/components/tableTrend'
 import tableHistogram from '@/components/tableHistogram'
 import tableRing from '@/components/tableRing'
 import tablePie from '@/components/tablePie'
+import login from '@/components/login'
 
 
 Vue.use(Router)
@@ -81,6 +82,12 @@ export default new Router({
           path: 'tablePie',
           name: 'tablePie',
           component: tablePie
+        },
+        //登录
+        {
+          path: 'login',
+          name: 'login',
+          component: login
         }
       ]
     },
