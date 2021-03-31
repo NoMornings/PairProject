@@ -33,9 +33,9 @@ export default {
       console.log('this.cnt',this.cnt);
       this.cnt+=1;
       this.cnt%=5;
-      for(var i=0;i<10;i++){
+      for(var i=0;i<10;i++){i
           // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-          this.chartData.rows[0].总浏览量=this.trendPerYear[i+this.cnt*10].总浏览量;
+          this.chartData.rows[i].总浏览量=this.trendPerYear[i+this.cnt*10].总浏览量;
       }
     },
     init:function(){
@@ -74,65 +74,6 @@ export default {
             console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
 
             setInterval(this.autoPlay, 2500)
-
-            clearTimeout(this.timer);  //清除延迟执行 
-            this.timer = setTimeout(()=>{   //设置延迟执行
-                for(var i=0;i<10;i++){
-                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(0)*10].总浏览量;
-                  }
-                  console.log('ok');
-            },1000);
-
-            clearTimeout(this.timer);  //清除延迟执行 
-            this.timer = setTimeout(()=>{   //设置延迟执行
-            for(var i=0;i<10;i++){
-                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(1)*10].总浏览量;
-                  }
-                  console.log('ok');
-                  },1000);
-
-            clearTimeout(this.timer);  //清除延迟执行 
-            this.timer = setTimeout(()=>{   //设置延迟执行
-            for(var i=0;i<10;i++){
-                // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                this.chartData.rows[0].总浏览量=this.trendPerYear[i+(2)*10].总浏览量;
-            }
-            console.log('ok');
-            },1000);
-
-                  clearTimeout(this.timer);  //清除延迟执行 
-                  this.timer = setTimeout(()=>{   //设置延迟执行
-                  for(var i=0;i<10;i++){
-                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(3)*10].总浏览量;
-                  }
-                  console.log('ok');
-                  },1000);
-
-                  clearTimeout(this.timer);  //清除延迟执行 
-                  this.timer = setTimeout(()=>{   //设置延迟执行
-                  for(var i=0;i<10;i++){
-                      // console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-                      this.chartData.rows[0].总浏览量=this.trendPerYear[i+(4)*10].总浏览量;
-                  }
-                  console.log('ok');
-                  },1000);
-              
-
-            //1s后执行
-            // setTimeout(function(){
-            //   for(var i=0;i<10;i++){
-            //     console.log("this.chartData.rows=",this.chartData.rows[0].总浏览量);
-            //       // this.chartData.rows[0].总浏览量=this.trendPerYear[i].总浏览量;
-            //   }
-            // },5000);
-            // setTimeout(function(){
-            //   for(var i=0;i<10;i++){
-            //       this.chartData.rows.push(trendPerYear[10+i]);
-            //   }
-            // },5000);
         })
     },
 
