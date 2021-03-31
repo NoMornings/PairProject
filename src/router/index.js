@@ -14,6 +14,9 @@ import navMenu from '@/components/navMenu'
 import tableHot from '@/components/tableHot'
 import tableKeyword from '@/components/tableKeyword'
 import tableTrend from '@/components/tableTrend'
+import tableHistogram from '@/components/tableHistogram'
+import tableRing from '@/components/tableRing'
+import tablePie from '@/components/tablePie'
 
 
 Vue.use(Router)
@@ -54,6 +57,30 @@ export default new Router({
           path: 'tableKeyword',
           name: 'tableKeyword',
           component: tableKeyword
+        },
+        //柱状图
+        {
+          path: 'tableHistogram',
+          name: 'tableHistogram',
+          component: tableHistogram
+        },
+        //环形
+        {
+          path: 'tableRing',
+          name: 'tableRing',
+          component: tableRing
+        },
+        //环形
+        {
+          path: 'tableRing',
+          name: 'tableRing',
+          component: tableRing
+        },
+        //饼形
+        {
+          path: 'tablePie',
+          name: 'tablePie',
+          component: tablePie
         }
       ]
     },
